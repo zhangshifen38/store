@@ -1,5 +1,6 @@
 //展示各种界面 
 #include <string.h>
+#include "ui.h"
 
 int menu(void)
 {
