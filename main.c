@@ -41,22 +41,17 @@ int main(void) {
 		printf("初始化错误，请检查！");
 	else
 	{
-//		login();			//登录
+		int adm=login();			//登录			
 	
 		int cho=1;
 		while(cho)			//用户输入0的时候退出程序 
 		{
+			title();
+			if(adm) admin();	//管理员特殊操作菜单 
+			
 			cho=menu();		//打开操作菜单 
-/*			switch(cho)
-			{
-				case 1:goods_in();break;
-				case 2:add_cus();break;
-				case 3:sell();break;
-				default:break;
-			}
-*/
+
 		}
 	}
-	system("pause");
 	return 0;
 }
