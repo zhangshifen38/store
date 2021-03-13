@@ -6,7 +6,7 @@
 #define MAX 200
 
 typedef struct Goods{
-	char type[MAX];		//商品种类 
+	int type;			//商品代码 
 	char name[MAX];		//商品名称 
 	int num;			//商品进货数量 
 	double price;		//商品价格
