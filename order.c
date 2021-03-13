@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "order.h"
-char * s_gets
 
 int main() {
 	List goods;
