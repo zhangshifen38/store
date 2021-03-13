@@ -12,7 +12,7 @@ typedef struct User{
 
 typedef struct User_Node{
 	USER user;			//用户结构体主体 
-	struct User_Node *node	//结构体指针 
+	struct User_Node *node;	//结构体指针 
 }USER_N; 
 
 typedef struct Goods{
