@@ -8,20 +8,21 @@
 
 
 int main(void) {
-		
-	int adm=login();			//登录			
-	
+	//int adm=login();			//登录			
 	int cho=1;
 	while(cho)					//用户输入0的时候退出程序 
 	{
 		title();
-		if(adm) admin();		//管理员特殊操作菜单 
-		
+		//if(adm) admin();		//管理员特殊操作菜单 
+		admin();
 		cho=menu();				//打开操作菜单 
 			
 		switch(cho)
 		{
-			case 11:goods_in();break;
+			case 11:
+				goods_in();
+				order();
+				break;
 			case 12:add_cus();break;
 			case 13:data();break;
 			case 1:sell();break;
