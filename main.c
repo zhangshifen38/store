@@ -23,7 +23,9 @@ int main(void) {
 				goods_in();
 				order();
 				break;
-			case 12:add_cus();break;
+			case 12:
+				add_cus();
+				break;
 			case 13:data();break;
 			case 1:sell();break;
 			case 2:help();break;
