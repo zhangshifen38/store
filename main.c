@@ -6,6 +6,7 @@
 #include "data.h"
 #include "order.h"
 #include "dataedit.h"
+#include "customer.h"
 
 
 
@@ -25,7 +26,10 @@ int main(void) {
 				goods_in();
 				order();
 				break;
-			case 12:add_cus();break;
+			case 12:
+				add_cus();
+				entering();
+				break;
 			case 13:
 				data();
 				edit();

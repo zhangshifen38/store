@@ -2,8 +2,10 @@
 #define CUSTOMER_H
 
 #include "data.h"
+#include<stdio.h>
+#include<stdlib.h>
 
-CUS_N * entering(void);
+void entering(void);
 
 
 
