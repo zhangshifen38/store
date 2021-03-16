@@ -4,6 +4,7 @@
 #include "ui.h"
 #include "login.h"
 #include "data.h"
+#include "dataedit.h"
 
 
 

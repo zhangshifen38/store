@@ -517,7 +517,7 @@ void pricesearch(void)
 	char name[MAX];
 	int num;
 	double price;
-	int judge;
+//	int judge;
 	FILE *edit=fopen("orderdata.txt","r+");
 	GOO_N *head=NULL,*prev,*now;	
 	while(fscanf(edit,"%d %s %d %lf",&type,name,&num,&price)!=EOF)
