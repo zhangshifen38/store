@@ -16,9 +16,9 @@ void output(GOO_N *head)//进货单输出到文件
 	while(p)
 	{
 		
-		fprintf(w,"%d\n",(p->goods).type);
-		fprintf(w,"%s\n",(p->goods).name);
-		fprintf(w,"%d\n",(p->goods).num);
+		fprintf(w,"%d ",(p->goods).type);
+		fprintf(w,"%s ",(p->goods).name);
+		fprintf(w,"%d ",(p->goods).num);
 		fprintf(w,"%lf\n",(p->goods).price);
 		p=p->node;
 	}

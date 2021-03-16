@@ -4,8 +4,9 @@
 #include "ui.h"
 #include "login.h"
 #include "data.h"
-#include "customer.h"
 #include "order.h"
+#include "dataedit.h"
+
 
 
 int main(void) {
@@ -24,11 +25,11 @@ int main(void) {
 				goods_in();
 				order();
 				break;
-			case 12:
-				add_cus();
-				entering();
+			case 12:add_cus();break;
+			case 13:
+				data();
+				edit();
 				break;
-			case 13:data();break;
 			case 1:sell();break;
 			case 2:help();break;
 			default:break;
