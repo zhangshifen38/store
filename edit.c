@@ -10,7 +10,7 @@ void edit(void)
 	{
 		printf("%d %s %d %lf %s\n",now->goods.type,now->goods.name,now->goods.num,now->goods.price,now->goods.time);
 		now=now->node;
-	}
+	}//读入成功检验
 	return;
 } 
 
