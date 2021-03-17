@@ -38,7 +38,9 @@ int main(void) {
 				
 				break;
 			case 1:sell();break;
-			case 2:help();break;
+			case 2:
+				help(adm);
+				break;
 			default:break;
 		}
 	}

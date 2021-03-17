@@ -3,6 +3,8 @@
 
 #include<string.h>
 #include<stdio.h>
+#include"data.h"
+#include<stdlib.h> 
 
 void title(void);		//标题
 
@@ -20,7 +22,7 @@ void users(void);		//登录用户管理
 
 void sell(void);		//售卖模式 
 
-void help(void);		//帮助文档 
+void help(int adm);		//帮助文档 
 
 
 #endif

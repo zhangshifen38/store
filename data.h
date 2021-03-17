@@ -1,6 +1,7 @@
 #ifndef DATA_H
 #define DATA_H
 
+#define ENTER putchar('\n');
 #define MAX 200
 
 typedef struct User{

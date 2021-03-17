@@ -113,6 +113,7 @@ void entering(void)
 		}
 		else if(cho==2)
 		{
+			 
 			change_cus();
 		}
 	} 

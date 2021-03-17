@@ -35,7 +35,7 @@ int menu(void)
 	putchar('\n');
 	puts("请输入进行的操作序号："); 
 	int cus;
-	scanf("%d",&cus);
+	scanf("%d",&cus);getchar();
 	return cus;
 }
 
@@ -99,12 +99,45 @@ void sell(void)
 } 
 
 //帮助文档
-void help(void)
+void help(int adm)
 {
+	system("cls");
 	puts("********************************");
 	puts("*                              *");
-	puts("*             帮助             *");
+	puts("*     小型商品信息管理系统     *");
+	puts("*           使用帮助           *");
 	puts("*                              *");
 	puts("********************************");
-	putchar('\n');
+	ENTER ENTER
+	
+	if(adm==1)
+	{
+		puts("********************************");
+		puts("*      系统管理员专属功能      *");
+		puts("********************************");
+		ENTER
+		puts("进货，进行商品信息的录入");
+		puts("a.从系统自动获取进货时间");
+		puts("b.输入商品数据并保存");
+		ENTER
+		puts("星级客户管理");
+		puts("a.读入客户名单");
+		puts("b.手动修改客户的星级");
+		ENTER
+		puts("选择数据管理");
+		puts("a.商品信息的查询与修改");
+		puts("b.商品数据统计");
+		ENTER 
+		puts("管理系统用户");
+		puts("a.修改用户的权限");
+		puts("b.增加新用户"); 
+		ENTER 
+	}
+	puts("售货模式使用");
+	puts("a.根据商品ID或者名称读入客户购买的商品");
+	puts("  （商品ID可通过扫描条形码自动录入或者手动输入）");
+	puts("b.读入星级客户卡号进行折扣与消费额度记录");
+	ENTER 
+	system("pause"); 
+	system("cls");
 } 
