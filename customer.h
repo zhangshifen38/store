@@ -7,6 +7,14 @@
 
 void entering(void);
 
+void check_cus(void);
 
+int choose_cus(void);
+
+void create_cus(CUS_N **target);
+
+void change_cus(void);
+
+void write_cus(CUS_N *point);
 
 #endif

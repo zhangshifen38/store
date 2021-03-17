@@ -34,6 +34,9 @@ int main(void) {
 				data();
 				edit();
 				break;
+			case 14:
+				
+				break;
 			case 1:sell();break;
 			case 2:help();break;
 			default:break;
