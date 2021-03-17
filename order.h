@@ -6,5 +6,4 @@ void output(GOO_N *head);
 
 void order(void);
 
-
 #endif
