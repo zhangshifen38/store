@@ -20,7 +20,7 @@ typedef struct Goods{
 	char name[MAX];		//商品名称 
 	int num;			//商品进货数量 
 	double price;		//商品价格
-	int time;			//进货时间
+	char time[MAX];			//进货时间
 	int sold;			//商品销量 
 }GOO;
 //商品结构体 

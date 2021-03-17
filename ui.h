@@ -1,6 +1,9 @@
 #ifndef UI_H
 #define UI_H
 
+#include<stdio.h>
+
+
 void title(void);		//标题
 
 void admin(void);		//管理员菜单 

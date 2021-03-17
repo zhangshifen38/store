@@ -2,7 +2,7 @@
 #include "order.h"
 #include "dataedit.h"
 
-void edit(void)
+void edit1(void)
 {
 	int judge;
 	while(1)

@@ -7,6 +7,7 @@
 #include "order.h"
 #include "dataedit.h"
 #include "customer.h"
+#include "edit.h"
 
 
 
