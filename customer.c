@@ -16,7 +16,7 @@ void entering(void)
 	printf("请输入客户的星级！\n");
 	scanf("%d",&p1->customer.star);
 	printf("请输入客户的消费额度！\n");
-	scanf("%lld",&p1->customer.cost);
+	scanf("%lf",&p1->customer.cost);
 	head=NULL;
 	while(p1->customer.star!=0) //结束条件：输入的星级为0时 
 	{
@@ -30,14 +30,14 @@ void entering(void)
 	printf("请输入客户的星级！\n");
 	scanf("%d",&p1->customer.star);
 	printf("请输入客户的消费额度！\n");
-	scanf("%lld",&p1->customer.cost);
+	scanf("%lf",&p1->customer.cost);
 	getchar();
 	}
 	p2->node=NULL;
 	CUS_N *point;
 	point=head;
 		FILE *fp;
-		if((fp=fopen(".//star cus","w"))==NULL)
+		if((fp=fopen(".//starcus.txt","w"))==NULL)
 		{
 		printf("cannot open file\n");
 		exit(0);
@@ -45,7 +45,8 @@ void entering(void)
 		 fprintf(fp,"客户名		客户星级		客户消费额度	\n");
 		 while(point!=NULL)
 		 {
-		 	fprintf(fp,"%s		%d		%lld		\n",point,point->customer.star,point->customer.cost);
+		 	fprintf(fp,"%s		%d		%lf		\n",
+			 	point->customer.name,point->customer.star,point->customer.cost);
 		 	point=point->node;
 		 }
 		 free(head);
