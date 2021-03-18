@@ -78,7 +78,7 @@ void write_cus(CUS_N *point)
 		while(point!=NULL)
 		{
 		 	fprintf(fp,"%s %d %lf\n",
-		 	point->customer.name,point->customer.star,point->customer.cost);
+		 		point->customer.name,point->customer.star,point->customer.cost);
 		 	point=point->node;
 		}
 		puts("保存星级客户数据成功！");
@@ -92,7 +92,7 @@ void destroy_cus(CUS_N *target)
 	while(current!=NULL)
 	{
 		target=current->node;
-		free(target);
+		free(current);
 		current=target;
 	}
 }

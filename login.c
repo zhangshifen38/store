@@ -229,3 +229,87 @@ int repeat_user(char name[],USER_N *target)
 	}
 	return 0;
 } 
+
+
+void change_user(USER_N *ptr)
+{
+	puts("请输入要操作的用户名：");
+	char tmp[MAX];
+	gets(tmp);
+	
+	USER_N *current=ptr;
+	while(current!=NULL)
+	{
+		if(!strcmp(tmp,current->user.name))
+		{
+			int cho=1;
+			while(cho)
+			{
+				puts("请输入您要进行的操作：");
+				puts("1) 修改权限   2) 修改用户名   3) 修改密码");
+				puts("0) 退出");
+				scanf("%d",&cho);getchar();
+				if(cho==1)
+				{
+					if(current->user.adm==1) 
+					{
+						current->user.adm=2;
+						puts("成功修改权限为“售货员”！");
+					}
+					if(current->user.adm==2)
+					{
+						current->user.adm==1;
+						puts("成功修改权限为“管理员”！");
+					}
+					puts("下次登录生效！");
+				} 
+				else if(cho==2)
+				{
+					puts("请输入您想修改的名称：");
+					gets(current->user.name);
+					puts("修改成功！"); 
+				}
+				else if(cho==3)
+				{
+					puts("请输入原密码：");
+					
+				}
+			}
+			 
+		}
+		current=current->node;
+	}
+	
+}
+
+
+void account(void)
+{
+	USER_N *acc;
+	FILE *fp;
+	
+	fp=fopen(".//user.txt","r");
+	read_user(&acc,fp);
+	fclose(fp);
+	
+	int cho=1;
+	while(cho)
+	{
+		puts("请选择您要进行的操作：");
+		puts("1) 修改用户信息   2)添加新账户");
+		puts("0) 退出"); 
+		scanf("%d",&cho);getchar();
+	
+		switch(cho)
+		{
+			case 1:
+				change_user(acc);
+				break;
+			case 2:
+				
+				break;
+		}
+	}
+	
+}
+

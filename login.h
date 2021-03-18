@@ -17,6 +17,10 @@ int compare_user(char *name,char *pwd,USER_N *target);	//寻找用户
 
 void destroy_user(USER_N *fp);			//销毁用户链表
 
-int repeat_user(char *name,USER_N *target);		//用户查重 
+int repeat_user(char *name,USER_N *target);		//用户查重
+
+void account(void);		//用户管理
+
+void change_user(USER_N *ptr);		//修改用户权限 
 
 #endif

@@ -35,7 +35,8 @@ int main(void) {
 				edit();
 				break;
 			case 14:
-				
+				users();
+				account();
 				break;
 			case 1:sell();break;
 			case 2:
