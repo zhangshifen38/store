@@ -18,6 +18,9 @@ void typeedit(void);
 void typeeditbytype(void);
 void typeeditbyname(void);
 void pricesearch(void);
+GOO_N * readdata(void);
+void delete (GOO_N *now);
+void rprint(GOO_N *head);
 
 
 
