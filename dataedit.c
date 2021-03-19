@@ -44,71 +44,13 @@ void nameedit(void)//名称修改
 }
 
 
-GOO_N * readdata(void)//将数据读入链表并返回头指针
-{
-	int type;
-	char name[MAX];
-	int num;
-	double price;
-	int judge;
-	char time[MAX];
-	FILE *edit=fopen("orderdata.txt","r+");
-	GOO_N *head=NULL,*prev,*now;	
-	while(fscanf(edit,"%d %s %d %lf %s",&type,name,&num,&price,time)!=EOF)
-	{
-		now=(GOO_N*)malloc(sizeof(GOO_N));
-		if(head==NULL) head=now;
-		else prev->node=now;
-		now->node=NULL;
-		(now->goods).type=type;
-		strcpy((now->goods).name,name);
-		(now->goods).num=num;
-		(now->goods).price=price;
-		strcpy(now->goods.time,time);
-		prev=now;
-	}//将数据读入链表
-	fclose(edit);
-	return head;
-}
 
-void delete (GOO_N *head)//删除链表
-{
-	GOO_N *now=head;
-	while(now!=NULL)
-	{
-		head=now->node;
-		free(now);
-		now=head;
-	}
-	return;
-}
-
-void rprint(GOO_N *head)//重新打印数据
-{
-	FILE *output=fopen("orderdata.txt","w");
-	GOO_N *now=head;
-	GOO_N *judgetotheend=head;//判断是否到达最后一个节点
-	while(judgetotheend!=NULL)
-	{
-		fprintf(output,"%d ",(now->goods).type);
-		fprintf(output,"%s ",(now->goods).name);
-		fprintf(output,"%d ",(now->goods).num);
-		fprintf(output,"%lf ",(now->goods).price);
-		fprintf(output,"%s\n",now->goods.time);
-		judgetotheend=judgetotheend->node;
-		now=now->node;
-	}
-	fclose(output);
-	return;
-}
 
 
 void nameeditbytype(void)
 {
 	int type;
 	char name[MAX];
-	int num;
-	double price;
 	int judge;
 	GOO_N *head=readdata();
 	GOO_N *now=head;
@@ -146,13 +88,9 @@ void nameeditbytype(void)
 
 void nameeditbyname(void)
 {
-	int type;
 	char name[MAX];//查询用名称
 	char ename[MAX];//修改用名称
-	int num;
-	double price;
 	int judge;
-	char time[MAX];
 	GOO_N *head=readdata();
 	GOO_N *now=head;
 	puts("请输入商品名称：") ;
@@ -248,8 +186,6 @@ void typeeditbyname(void)
 {
 	int type;
 	char name[MAX];//查询用名称
-	int num;
-	double price;
 	int judge;
 	GOO_N *head=readdata();
 	GOO_N *now=head;
@@ -299,8 +235,6 @@ void priceedit(void)//价格编辑
 void priceeditbytype(void)
 {
 	int type;
-	char name[MAX];
-	int num;
 	double price;
 	int judge;
 	GOO_N *head=readdata();
@@ -339,9 +273,7 @@ void priceeditbytype(void)
 
 void priceeditbyname(void)
 {
-	int type;
 	char name[MAX];
-	int num;
 	double price;
 	int judge;
 	GOO_N *head=readdata();
@@ -382,10 +314,6 @@ void pricesearch(void)
 {
 	double priceleast;//最低价格
 	double pricemost;//最高价格
-	int type;
-	char name[MAX];
-	int num;
-	double price;
 	GOO_N *head=readdata();
 	GOO_N *now=head;
 	puts("请输入最低价格：");
@@ -401,5 +329,71 @@ void pricesearch(void)
 		now=now->node;
 	}
 	delete(head);
+	return;
+}
+
+
+
+
+
+GOO_N * readdata(void)//将数据读入链表并返回头指针
+{
+	int type;
+	char name[MAX];
+	int num;
+	double price;
+	int judge;
+	char time[MAX];
+	FILE *edit=fopen("orderdata.txt","r+");
+	GOO_N *head=NULL,*prev,*now;	
+	while(fscanf(edit,"%d %s %d %lf %s",&type,name,&num,&price,time)!=EOF)
+	{
+		now=(GOO_N*)malloc(sizeof(GOO_N));
+		if(head==NULL) head=now;
+		else prev->node=now;
+		now->node=NULL;
+		(now->goods).type=type;
+		strcpy((now->goods).name,name);
+		(now->goods).num=num;
+		(now->goods).price=price;
+		strcpy(now->goods.time,time);
+		prev=now;
+	}//将数据读入链表
+	fclose(edit);
+	return head;
+}
+
+
+
+void delete (GOO_N *head)//删除链表
+{
+	GOO_N *now=head;
+	while(now!=NULL)
+	{
+		head=now->node;
+		free(now);
+		now=head;
+	}
+	return;
+}
+
+
+
+void rprint(GOO_N *head)//重新打印数据
+{
+	FILE *output=fopen("orderdata.txt","w");
+	GOO_N *now=head;
+	GOO_N *judgetotheend=head;//判断是否到达最后一个节点
+	while(judgetotheend!=NULL)
+	{
+		fprintf(output,"%d ",(now->goods).type);
+		fprintf(output,"%s ",(now->goods).name);
+		fprintf(output,"%d ",(now->goods).num);
+		fprintf(output,"%lf ",(now->goods).price);
+		fprintf(output,"%s\n",now->goods.time);
+		judgetotheend=judgetotheend->node;
+		now=now->node;
+	}
+	fclose(output);
 	return;
 }
