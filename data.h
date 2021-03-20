@@ -35,6 +35,7 @@ typedef struct Customer{
 	char name[MAX];		//顾客姓名 
 	int star;			//顾客星级 
 	double cost;		//消费额 
+	char id[16];		//顾客的卡号 
 }CUS;
 //顾客信息结构体 
 

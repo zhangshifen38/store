@@ -143,9 +143,9 @@ void typeeditbytype(void)
 {
 	int type;//查询用代号
 	int etype;//修改用代号
-	char name[MAX];
-	int num;
-	double price;
+//	char name[MAX];
+//	int num;
+//	double price;
 	int judge;
 	GOO_N *head=readdata();
 	GOO_N *now=head;
@@ -342,7 +342,7 @@ GOO_N * readdata(void)//将数据读入链表并返回头指针
 	char name[MAX];
 	int num;
 	double price;
-	int judge;
+//	int judge;
 	char time[MAX];
 	FILE *edit=fopen("orderdata.txt","r+");
 	GOO_N *head=NULL,*prev,*now;	
