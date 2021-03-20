@@ -15,6 +15,8 @@ void create_cus(CUS_N **target);
 
 void change_cus(void);
 
+void print();
+
 void write_cus(CUS_N *point);
 
 #endif

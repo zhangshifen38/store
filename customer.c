@@ -96,6 +96,37 @@ void destroy_cus(CUS_N *target)
 		current=target;
 	}
 }
+void print()
+{
+	FILE *fp_starcus;
+	CUS_N *head=NULL;
+	CUS_N *pre,*cur;
+	fp_starcus=fopen("starcus.txt","r");
+	while(!feof(fp_starcus))
+	{
+		cur=(CUS_N *)malloc(sizeof(CUS_N));
+		if(head==NULL)
+		{
+			head=cur;
+		}
+		else
+		{
+			pre->node=cur;
+		}
+		fscanf(fp_starcus,"%s %d %lf",cur->customer.name,&cur->customer.star,&cur->customer.cost);		
+		pre=cur;
+		cur->node=NULL;
+	}
+	fclose(fp_starcus);
+	CUS_N *p6;
+	p6=head;
+	while(p6!=NULL)
+	{
+		printf("%s %d %lf \n",p6->customer.name,p6->customer.star,p6->customer.cost); 
+		p6=p6->node;
+	}
+	
+}
 
 void entering(void)
 {
@@ -110,6 +141,7 @@ void entering(void)
 		if(cho==1)
 		{
 			create_cus(&cus);
+			
 		}
 		else if(cho==2)
 		{
@@ -117,5 +149,6 @@ void entering(void)
 		}
 	} 
 	write_cus(cus);
+	print();
 	destroy_cus(cus);
 }
