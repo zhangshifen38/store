@@ -161,7 +161,8 @@ void read_user(USER_N **find,FILE *fp)
 		{
 			previous->node=current;
 		}
-		fscanf(fp,"%d %s %s",&(current->user).adm,(current->user).name,(current->user).pwd);
+		fscanf(fp,"%d %s %s",
+			&(current->user).adm,(current->user).name,(current->user).pwd);
 		current->node=NULL;
 		previous=current;
 	}
@@ -231,6 +232,7 @@ int repeat_user(char name[],USER_N *target)
 } 
 
 
+//修改用户信息 
 void change_user(USER_N *ptr)
 {
 	puts("请输入要操作的用户名：");
@@ -258,7 +260,7 @@ void change_user(USER_N *ptr)
 					}
 					if(current->user.adm==2)
 					{
-						current->user.adm==1;
+						current->user.adm=1;
 						puts("成功修改权限为“管理员”！");
 					}
 					puts("下次登录生效！");
@@ -272,14 +274,27 @@ void change_user(USER_N *ptr)
 				else if(cho==3)
 				{
 					puts("请输入原密码：");
+					char pwd_t[17];
+					password(pwd_t);
+					while(strcmp(pwd_t,current->user.pwd))
+					{
+						puts("密码错误，请重试！");
+						password(pwd_t);						
+					}
 					
+					puts("请输入新密码：");
+					password(current->user.pwd);
+					puts("修改成功！");	 
 				}
 			}
-			 
+			break;	 
 		}
 		current=current->node;
 	}
 	
+	FILE *fp=fopen(".//user.txt","w");
+	write_user(ptr,fp);
+	fclose(fp);
 }
 
 
@@ -288,7 +303,7 @@ void account(void)
 	USER_N *acc;
 	FILE *fp;
 	
-	fp=fopen(".//user.txt","r");
+	fp=fopen(".//users.txt","r");
 	read_user(&acc,fp);
 	fclose(fp);
 	
@@ -313,3 +328,13 @@ void account(void)
 	
 }
 
+
+void write_user(USER_N *target,FILE *fp)
+{
+	while(target!=NULL)
+	{
+		fprintf(fp,"%d %s %s\n",
+			target->user.adm,target->user.name,target->user.pwd);
+		target=target->node;
+	}
+}

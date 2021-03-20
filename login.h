@@ -23,4 +23,6 @@ void account(void);		//用户管理
 
 void change_user(USER_N *ptr);		//修改用户权限 
 
+void write_user(USER_N *target,FILE *fp);	//写入文件 
+
 #endif

@@ -110,6 +110,8 @@ void entering(void)
 		if(cho==1)
 		{
 			create_cus(&cus);
+			
+			
 		}
 		else if(cho==2)
 		{
