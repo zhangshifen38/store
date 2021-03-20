@@ -21,7 +21,8 @@ void output(GOO_N *head)//进货单输出到文件
 		fprintf(w,"%s ",(p->goods).name);
 		fprintf(w,"%d ",(p->goods).num);
 		fprintf(w,"%lf ",(p->goods).price);
-		fprintf(w,"%s\n",(p->goods).time);
+		fprintf(w,"%s ",(p->goods).time);
+		fprintf(w,"%d\n",p->goods.sold);
 		p=p->node;
 	}
 	fclose(w);
@@ -56,6 +57,7 @@ void order(void)//进货单数据接收、录入、输出与删除
 			while(getchar()!='\n')
 				continue;
 			timeinput(now->goods.time);
+			now->goods.sold=0;
 			puts("请输入下一个商品代码(ctrl+z停止录入)：");
 			prev=now;
 		}
