@@ -21,7 +21,7 @@ typedef struct Goods{
 	char name[MAX];		//商品名称 
 	int num;			//商品进货数量 
 	double price;		//商品价格
-	int time;			//进货时间
+	char time[MAX];			//进货时间
 	int sold;			//商品销量 
 }GOO;
 //商品结构体 
@@ -36,6 +36,7 @@ typedef struct Customer{
 	char name[MAX];		//顾客姓名 
 	int star;			//顾客星级 
 	double cost;		//消费额 
+	char id[16];		//顾客的卡号 
 }CUS;
 //顾客信息结构体 
 

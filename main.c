@@ -7,6 +7,7 @@
 #include "order.h"
 #include "dataedit.h"
 #include "customer.h"
+#include "edit.h"
 
 
 
@@ -32,7 +33,7 @@ int main(void) {
 				break;
 			case 13:
 				data();
-				edit();
+				edit1();
 				break;
 			case 14:
 				users();

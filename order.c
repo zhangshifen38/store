@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include "data.h"
 #include "order.h"
+#include<string.h>
+
 
 void output(GOO_N *head)//进货单输出到文件
 {
@@ -15,11 +17,11 @@ void output(GOO_N *head)//进货单输出到文件
 	fseek(w,0,SEEK_END);
 	while(p)
 	{
-		
 		fprintf(w,"%d ",(p->goods).type);
 		fprintf(w,"%s ",(p->goods).name);
 		fprintf(w,"%d ",(p->goods).num);
-		fprintf(w,"%lf\n",(p->goods).price);
+		fprintf(w,"%lf ",(p->goods).price);
+		fprintf(w,"%s\n",(p->goods).time);
 		p=p->node;
 	}
 	fclose(w);
@@ -53,6 +55,7 @@ void order(void)//进货单数据接收、录入、输出与删除
 			scanf("%lf",&(now->goods).price);
 			while(getchar()!='\n')
 				continue;
+			timeinput(now->goods.time);
 			puts("请输入下一个商品代码(ctrl+z停止录入)：");
 			prev=now;
 		}
@@ -73,3 +76,81 @@ void order(void)//进货单数据接收、录入、输出与删除
 			}
 		}
 }
+
+void timeinput(char time1[])
+{
+	time_t cur;
+	struct tm *tm_cur;//时间前置声明
+	char year[MAX],month[MAX],day[MAX],hour[MAX],min[MAX],sec[MAX];//年月日小时分钟秒临时字符串
+	char mid[MAX];//中转数组
+	time(&cur) ;
+			tm_cur = localtime(&cur);//获取时间
+			itoa(tm_cur->tm_year+1900,year,10);
+			itoa(tm_cur->tm_mon+1,month,10);
+			itoa(tm_cur->tm_mday,day,10);
+			itoa(tm_cur->tm_hour,hour,10);
+			itoa(tm_cur->tm_min,min,10);
+			itoa(tm_cur->tm_sec,sec,10);//将时间存入临时数组
+			strcpy(time1,year);
+			memset(mid,'\0',sizeof mid);
+			if(tm_cur->tm_mon+1<10)
+			{
+				mid[0]='0';
+				strcat(mid,month);
+				strcpy(month,mid);
+				strcat(time1,month);
+				memset(mid,'\0',sizeof mid);
+			}
+			else  strcat(time1,month);
+			if(tm_cur->tm_mday<10)
+			{
+				mid[0]='0';
+				strcat(mid,day);
+				strcpy(day,mid);
+				strcat(time1,day);
+				memset(mid,'\0',sizeof mid);
+			}
+			else strcat(time1,day);
+			strcat(time1,"_");
+			if(tm_cur->tm_hour<10)
+			{
+				mid[0]='0';
+				strcat(mid,hour);
+				strcpy(hour,mid);
+				strcat(time1,hour);
+				strcat(time1,":");
+				memset(mid,'\0',sizeof mid);
+			}
+			else 
+			{
+				strcat(time1,hour);
+				strcat(time1,":");
+			}
+			
+			if(tm_cur->tm_min<10)
+			{
+				mid[0]='0';
+				strcat(mid,min);
+				strcpy(min,mid);
+				strcat(time1,min);
+				strcat(time1,":");
+				memset(mid,'\0',sizeof mid);
+			}
+			else 
+			{
+				strcat(time1,min);
+				strcat(time1,":");
+			}
+			
+			if(tm_cur->tm_sec<10)
+			{
+				mid[0]='0';
+				strcat(mid,sec);
+				strcpy(sec,mid);
+				strcat(time1,sec);
+				memset(mid,'\0',sizeof mid);
+			}
+			else strcat(time1,sec);
+			return;
+}
+
