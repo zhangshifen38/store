@@ -25,4 +25,6 @@ void change_user(USER_N *ptr);		//修改用户权限
 
 void write_user(USER_N *target,FILE *fp);	//写入文件 
 
+void add_user(USER_N *target);		//添加用户 
+
 #endif

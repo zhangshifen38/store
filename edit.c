@@ -18,7 +18,7 @@ GOO_N * inputfromfile(void)
 {
 	FILE *input=fopen("orderdata.txt","r");
 	GOO_N *head=NULL,*prev,*now;
-	int type;//录入时商品代码的中转变量
+//	int type;//录入时商品代码的中转变量
 	while(1)
 	{
 		now=(GOO_N*)malloc(sizeof(GOO_N));
