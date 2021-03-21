@@ -33,7 +33,7 @@ int main(void) {
 				break;
 			case 13:
 				data();
-				edit1();
+				datamanage();
 				break;
 			case 14:
 				

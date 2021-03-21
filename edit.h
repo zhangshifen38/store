@@ -6,7 +6,7 @@
 #include<string.h>
 #include "data.h"
 
-void edit(void);
+GOO_N * edit(void);
 
 GOO_N * inputfromfile(void);
 

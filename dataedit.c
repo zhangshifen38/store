@@ -342,11 +342,11 @@ GOO_N * readdata(void)//将数据读入链表并返回头指针
 	char name[MAX];
 	int num;
 	double price;
-//	int judge;
 	char time[MAX];
+	int sold;
 	FILE *edit=fopen("orderdata.txt","r+");
 	GOO_N *head=NULL,*prev,*now;	
-	while(fscanf(edit,"%d %s %d %lf %s",&type,name,&num,&price,time)!=EOF)
+	while(fscanf(edit,"%d %s %d %lf %s %d",&type,name,&num,&price,time,&sold)!=EOF)
 	{
 		now=(GOO_N*)malloc(sizeof(GOO_N));
 		if(head==NULL) head=now;
@@ -357,6 +357,7 @@ GOO_N * readdata(void)//将数据读入链表并返回头指针
 		(now->goods).num=num;
 		(now->goods).price=price;
 		strcpy(now->goods.time,time);
+		now->goods.sold=sold;
 		prev=now;
 	}//将数据读入链表
 	fclose(edit);
@@ -390,7 +391,8 @@ void rprint(GOO_N *head)//重新打印数据
 		fprintf(output,"%s ",(now->goods).name);
 		fprintf(output,"%d ",(now->goods).num);
 		fprintf(output,"%lf ",(now->goods).price);
-		fprintf(output,"%s\n",now->goods.time);
+		fprintf(output,"%s ",now->goods.time);
+		fprintf(output,"%d\n",now->goods.sold);
 		judgetotheend=judgetotheend->node;
 		now=now->node;
 	}

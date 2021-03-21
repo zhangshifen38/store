@@ -1,17 +1,11 @@
 #include "edit.h"
 
-void edit(void)
+GOO_N * edit(void)
 {
 	GOO_N *now,*head;
 	head=inputfromfile();
 	puts("从文件读入数据成功！");
-	now=head;
-	while(now->node!=NULL)
-	{
-		printf("%d %s %d %lf %s\n",now->goods.type,now->goods.name,now->goods.num,now->goods.price,now->goods.time);
-		now=now->node;
-	}//读入成功检验
-	return;
+	return head;
 } 
 
 GOO_N * inputfromfile(void)
@@ -25,7 +19,7 @@ GOO_N * inputfromfile(void)
 		if(head==NULL) head=now;//如果是第一个节点
 		else prev->node=now;
 		now->node=NULL;
-		if(fscanf(input,"%d %s %d %lf %s",&now->goods.type,now->goods.name,&now->goods.num,&now->goods.price,now->goods.time)==EOF)
+		if(fscanf(input,"%d %s %d %lf %s %d",&now->goods.type,now->goods.name,&now->goods.num,&now->goods.price,now->goods.time,now->goods.sold)==EOF)
 		break;
 		prev=now;
 	}
