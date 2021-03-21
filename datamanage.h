@@ -7,4 +7,4 @@
 #include "dataedit.h"
 void datamanage(void);
 
-#endif DATAMANAGE_H
+#endif 

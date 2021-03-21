@@ -19,7 +19,7 @@ GOO_N * inputfromfile(void)
 		if(head==NULL) head=now;//如果是第一个节点
 		else prev->node=now;
 		now->node=NULL;
-		if(fscanf(input,"%d %s %d %lf %s %d",&now->goods.type,now->goods.name,&now->goods.num,&now->goods.price,now->goods.time,now->goods.sold)==EOF)
+		if(fscanf(input,"%d %s %d %lf %s %d",&now->goods.type,now->goods.name,&now->goods.num,&now->goods.price,now->goods.time,&now->goods.sold)==EOF)
 		break;
 		prev=now;
 	}
