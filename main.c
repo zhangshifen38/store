@@ -23,23 +23,28 @@ int main(void) {
 			
 		switch(cho)
 		{
-			case 11:
+			case 11:			//录入进货单 
 				goods_in();
 				order();
 				break;
-			case 12:
+			case 12:			//星级客户管理 
 				add_cus();
 				entering();
 				break;
-			case 13:
+			case 13:			//数据管理 
 				data();
 				datamanage();
 				break;
-			case 14:
-				
+			case 14:			//登录账户管理 
+				users();
+				account();
 				break;
-			case 1:sell();break;
-			case 2:help();break;
+			case 1:
+				sell();			//售货模式 
+				break;
+			case 2:				//帮助 
+				help(adm);
+				break;
 			default:break;
 		}
 	}
